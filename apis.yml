@@ -1,0 +1,219 @@
+aid: bmw-connecteddrive
+name: BMW ConnectedDrive
+url: https://raw.githubusercontent.com/api-evangelist/bmw-connecteddrive/refs/heads/main/apis.yml
+description: >-
+  BMW ConnectedDrive is BMW Group's umbrella for connected vehicle services
+  spanning navigation, remote services, intelligent emergency call,
+  ConnectedDrive Store add-ons, and the My BMW app. Programmatic access for
+  customers, third-party developers, and the repair-and-maintenance ecosystem
+  is consolidated under the BMW Open Data Platform / BMW CarData. CarData
+  exposes an OAuth 2.0 Device Code Flow protected REST API at
+  api-cardata.bmwgroup.com for retrieving static vehicle metadata
+  (basicData), telematics, charging history, smart maintenance tyre
+  diagnosis, location-based charging settings, vehicle images, and managing
+  data "containers" that scope which telematics descriptors a client is
+  authorized to read. A companion MQTT 3.1.1 streaming service at
+  customer.streaming-cardata.bmwgroup.com:9000 (TLS) pushes live container
+  data on the per-VIN topic `{gcid}/{vin}`. CarData is the EU regulatory
+  successor to the legacy BMW ConnectedDrive REST endpoints used by the My
+  BMW app and is the canonical surface for third-party automotive
+  integrations, including independent repair, fleet, charging, and
+  home-automation use cases.
+tags:
+  - Automotive
+  - Connected Vehicle
+  - Telematics
+  - Vehicle Data
+  - CarData
+  - ConnectedDrive
+  - Electric Vehicles
+  - Charging
+  - MQTT
+  - Streaming
+  - OAuth
+  - Device Code Flow
+  - GDPR
+  - Right To Repair
+  - Mobility
+type: Provider
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: bmw-connecteddrive:bmw-cardata-customer-api
+    name: BMW CarData Customer API
+    description: >-
+      The BMW CarData Customer API lets an authenticated BMW customer (or a
+      delegate acting on their behalf via the customer portal) read vehicle
+      metadata and telematics for the VINs mapped to their BMW ID account.
+      Endpoints cover vehicle mappings, basic data, telematic data,
+      charging history, smart-maintenance tyre diagnosis, location-based
+      charging settings, vehicle images, and CRUD over CarData "containers"
+      that define which descriptors a client subscribes to. Authentication
+      uses the GCDM (Global Customer Data Management) bearer token obtained
+      via the OAuth 2.0 Device Code Flow against the `cardata:api:read`
+      scope. The base URL is `https://api-cardata.bmwgroup.com` with header
+      `x-version: v1`. ID tokens are valid for one hour and must be
+      refreshed via the standard OAuth refresh-token grant.
+    humanURL: https://bmw-cardata.bmwgroup.com/customer/public/api-documentation
+    baseURL: https://api-cardata.bmwgroup.com
+    tags:
+      - CarData
+      - Vehicles
+      - Telematics
+      - Containers
+      - Charging
+      - OAuth
+    properties:
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/customer/public/api-documentation
+      - type: OpenAPI
+        url: openapi/bmw-cardata-customer-api-openapi.json
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/customer/public/api-specification
+        name: CarData API Swagger UI
+  - aid: bmw-connecteddrive:bmw-cardata-streaming-api
+    name: BMW CarData Streaming API
+    description: >-
+      The BMW CarData Streaming API delivers near-real-time vehicle
+      telematics over MQTT 3.1.1 with TLS. Clients connect to
+      `customer.streaming-cardata.bmwgroup.com` on port 9000, authenticate
+      with their GCID as the MQTT username and a GCDM access token (scope
+      `cardata:streaming:read`) as the password, and subscribe to the
+      per-vehicle topic `{gcid}/{vin}`. The set of descriptors streamed is
+      controlled by the container(s) the client has registered via the
+      CarData REST API, allowing a customer to scope exactly which signals
+      (e.g. state of charge, mileage, doors, location) flow to each
+      third-party integration. The streaming surface is the recommended
+      path for charging optimizers, home-automation hubs, and fleet
+      telematics back-ends that need event-driven updates instead of polled
+      reads.
+    humanURL: https://bmw-cardata.bmwgroup.com/customer/public/api-documentation
+    tags:
+      - CarData
+      - Streaming
+      - MQTT
+      - Telematics
+      - Real-Time
+    properties:
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/customer/public/api-documentation
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/customer/public/api-specification
+        name: CarData Streaming Configuration
+  - aid: bmw-connecteddrive:bmw-cardata-thirdparty-api
+    name: BMW CarData Third-Party API
+    description: >-
+      The third-party variant of BMW CarData targets independent service
+      providers — repair shops, charging operators, fleet platforms,
+      insurance, and aftermarket integrators — who consume vehicle data on
+      behalf of customers who have explicitly consented through the BMW
+      Open Data Platform. Third parties register a client, subscribe to
+      one or more CarData services (which assigns the corresponding scope
+      to the client ID), and then drive their users through the OAuth 2.0
+      Device Code Flow to obtain customer consent. The third-party surface
+      reuses the same REST and MQTT endpoints as the Customer API but is
+      bounded by the data-minimization rules of the BMW Open Data
+      Platform and the EU Data Act / right-to-repair framework.
+    humanURL: https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation
+    tags:
+      - CarData
+      - Third-Party
+      - Vehicles
+      - Telematics
+      - Right To Repair
+    properties:
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-specification
+        name: Third-Party CarData API Specification
+      - type: Documentation
+        url: https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation
+        name: Repair and Maintenance API Documentation
+common:
+  - type: Portal
+    url: https://www.bmw.com
+  - type: Portal
+    url: https://www.bmwgroup.com
+  - type: Portal
+    url: https://bmw-cardata.bmwgroup.com/
+    name: BMW Open Data Platform / CarData
+  - type: Documentation
+    url: https://bmw-cardata.bmwgroup.com/customer/public/api-documentation
+    name: CarData Customer API Documentation
+  - type: Documentation
+    url: https://bmw-cardata.bmwgroup.com/customer/public/api-specification
+    name: CarData Customer API Specification (Swagger UI)
+  - type: Documentation
+    url: https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation
+    name: CarData Third-Party API Documentation
+  - type: Documentation
+    url: https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-specification
+    name: CarData Third-Party API Specification
+  - type: Documentation
+    url: https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation
+    name: Repair and Maintenance API Documentation
+  - type: SignUp
+    url: https://bmw-cardata.bmwgroup.com/customer
+    name: CarData Customer Portal
+  - type: SignUp
+    url: https://bmw-cardata.bmwgroup.com/thirdparty
+    name: CarData Third-Party Portal
+  - type: Authentication
+    url: https://customer.bmwgroup.com/oneid/login
+    name: BMW ID / GCDM OAuth (Device Code Flow)
+  - type: ConnectedDrive
+    url: https://www.bmw.com/en/explore-bmw/connected-drive.html
+    name: BMW ConnectedDrive overview
+  - type: ConnectedDriveStore
+    url: https://customer.bmwgroup.com/store/
+    name: ConnectedDrive Store
+  - type: MyBMW
+    url: https://www.bmw.com/en/footer/my-bmw-app.html
+    name: My BMW App
+  - type: GitHubOrganization
+    url: https://github.com/bmwcarit
+    name: BMW Car IT GitHub (joynr, ramses, MoCOCrW, python-dlt)
+  - type: GitHubOrganization
+    url: https://github.com/bmwgroup
+    name: BMW Group GitHub
+  - type: PrivacyPolicy
+    url: https://www.bmw.com/en/footer/metanavigation/privacy-policy.html
+  - type: TermsOfService
+    url: https://www.bmw.com/en/footer/metanavigation/legal-notice-pool/legal-notice.html
+  - type: Press
+    url: https://www.press.bmwgroup.com
+  - type: Newsroom
+    url: https://www.bmwgroup.com/en/news.html
+  - type: Twitter
+    url: https://twitter.com/BMWGroup
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bmw-group
+  - type: YouTube
+    url: https://www.youtube.com/@BMWGroup
+  - type: Features
+    data:
+      - OAuth 2.0 Device Code Flow against GCDM for customer consent
+      - Scoped client subscriptions — `cardata:api:read` and `cardata:streaming:read`
+      - CarData "containers" let customers scope which telematics descriptors flow to each client
+      - REST endpoints for basic data, telematic data, charging history, smart maintenance tyre diagnosis, location-based charging settings, vehicle images, and vehicle mappings
+      - MQTT 3.1.1 streaming over TLS for near-real-time per-VIN telematics on topic `{gcid}/{vin}`
+      - GCID-based identity model for both REST bearer tokens and MQTT credentials
+      - One-hour ID tokens with refresh-token rotation
+      - Third-party developer track aligned with EU Data Act / right-to-repair
+      - Separate Repair & Maintenance API track for independent workshops
+      - Companion BMW Car IT open-source stack (joynr, ramses, MoCOCrW, python-dlt) underpinning connected-vehicle middleware
+    sources:
+      - https://bmw-cardata.bmwgroup.com/customer/public/api-documentation
+      - https://bmw-cardata.bmwgroup.com/customer/public/api-specification
+      - https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation
+      - https://github.com/bmwcarit
+    updated: '2026-05-25'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
