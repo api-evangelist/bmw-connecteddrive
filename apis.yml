@@ -157,10 +157,10 @@ common:
   - type: Documentation
     url: https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation
     name: Repair and Maintenance API Documentation
-  - type: SignUp
+  - type: Signup
     url: https://bmw-cardata.bmwgroup.com/customer
     name: CarData Customer Portal
-  - type: SignUp
+  - type: Signup
     url: https://bmw-cardata.bmwgroup.com/thirdparty
     name: CarData Third-Party Portal
   - type: Authentication
