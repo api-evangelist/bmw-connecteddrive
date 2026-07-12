@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bmw-cardata-customer-api-openapi.json
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: opaque
+  description: GCDM Access Token
+  sources:
+  - openapi/bmw-cardata-customer-api-openapi.json

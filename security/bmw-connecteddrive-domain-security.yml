@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.bmw.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 10 06:27:36 2026 GMT
+  hsts: null
+- host: www.bmwgroup.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 27 05:20:55 2026 GMT
+  hsts: null
+- host: bmw-cardata.bmwgroup.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 03:06:43 2026 GMT
+  hsts: null
+domains:
+- domain: bmw.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: bmwgroup.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

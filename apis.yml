@@ -135,6 +135,10 @@ apis:
         url: https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation
         name: Repair and Maintenance API Documentation
 common:
+  - type: DomainSecurity
+    url: security/bmw-connecteddrive-domain-security.yml
+  - type: Authentication
+    url: authentication/bmw-connecteddrive-authentication.yml
   - type: Portal
     url: https://www.bmw.com
   - type: Portal
@@ -163,6 +167,8 @@ common:
   - type: Signup
     url: https://bmw-cardata.bmwgroup.com/thirdparty
     name: CarData Third-Party Portal
+  - type: Blog
+    url: https://www.press.bmwgroup.com/global/rss
   - type: Authentication
     url: https://customer.bmwgroup.com/oneid/login
     name: BMW ID / GCDM OAuth (Device Code Flow)
