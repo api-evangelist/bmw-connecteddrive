@@ -1,0 +1,18 @@
+{
+  "repo": "bmw-connecteddrive",
+  "feeds": [
+    {
+      "source": "https://www.press.bmwgroup.com/global/rss",
+      "feed_url": "https://www.press.bmwgroup.com/global/rss",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://bmw-cardata.bmwgroup.com/thirdparty",
+      "error": "HTTPError"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 32
+}
