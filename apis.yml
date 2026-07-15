@@ -135,6 +135,8 @@ apis:
         url: https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation
         name: Repair and Maintenance API Documentation
 common:
+  - type: AgenticAccess
+    url: agentic-access/bmw-connecteddrive-agentic-access.yml
   - type: DomainSecurity
     url: security/bmw-connecteddrive-domain-security.yml
   - type: Authentication
