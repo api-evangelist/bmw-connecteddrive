@@ -1,0 +1,415 @@
+openapi: 3.1.0
+info:
+  title: CARDATA Containers API
+  version: 1.0.0
+  description: Management of containers
+servers:
+- url: https://api-cardata.bmwgroup.com
+  description: Generated server url
+tags:
+- name: Containers
+  description: Management of containers
+paths:
+  /customers/containers:
+    get:
+      tags:
+      - Containers
+      summary: List the containers
+      operationId: listContainers
+      parameters:
+      - in: header
+        name: x-version
+        required: true
+        schema:
+          type: string
+          default: v1
+      responses:
+        '400':
+          description: Bad request. Please check API specification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '401':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '403':
+          description: Access to resource is forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '500':
+          description: A permanent server error occurred. Report this error if it occurs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '503':
+          description: A temporary server error occurred. Retry again later or report this error if it persists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '200':
+          description: List of available containers is returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerListDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContainerListDto'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Containers
+      summary: Create a container
+      operationId: createContainer
+      description: Please note that some keys are bound to dedicated endpoints. These keys can be added to a container, but the corresponding endpoint for which the container is an input-parameter (/telematicData/), won't return these keys. For further details, check the Integration Guide (chapter 3.3.2).
+      parameters:
+      - in: header
+        name: x-version
+        required: true
+        schema:
+          type: string
+          default: v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContainerRequest'
+        required: true
+      responses:
+        '400':
+          description: Bad request. Please check API specification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '401':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '403':
+          description: Access to resource is forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '500':
+          description: A permanent server error occurred. Report this error if it occurs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '503':
+          description: A temporary server error occurred. Retry again later or report this error if it persists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '201':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerDetailsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContainerDetailsDto'
+      security:
+      - bearerAuth: []
+  /customers/containers/{containerId}:
+    get:
+      tags:
+      - Containers
+      summary: Request container details
+      operationId: getContainerDetails
+      description: Please note that some keys are bound to dedicated endpoints. These keys can be added to a container, but the corresponding endpoint for which the container is an input-parameter (/telematicData/), won't return these keys. For further details, check the Integration Guide (chapter 3.3.2).
+      parameters:
+      - in: header
+        name: x-version
+        required: true
+        schema:
+          type: string
+          default: v1
+      - name: containerId
+        in: path
+        description: ID that identifies an unique container
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad request. Please check API specification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '401':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '403':
+          description: Access to resource is forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '500':
+          description: A permanent server error occurred. Report this error if it occurs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '503':
+          description: A temporary server error occurred. Retry again later or report this error if it persists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerDetailsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContainerDetailsDto'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Containers
+      summary: Delete container by ID
+      operationId: deleteContainer
+      parameters:
+      - in: header
+        name: x-version
+        required: true
+        schema:
+          type: string
+          default: v1
+      - name: containerId
+        in: path
+        description: ID that identifies an unique container
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Bad request. Please check API specification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '401':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '403':
+          description: Access to resource is forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '500':
+          description: A permanent server error occurred. Report this error if it occurs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '503':
+          description: A temporary server error occurred. Retry again later or report this error if it persists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CustomerErrorResponse'
+        '204':
+          description: Successful operation, no content
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    CreateContainerRequest:
+      type: object
+      description: Container creation request payload
+      properties:
+        name:
+          type: string
+        purpose:
+          type: string
+        technicalDescriptors:
+          type: array
+          items:
+            type: string
+    ContainerDto:
+      type: object
+      properties:
+        containerId:
+          type: string
+        name:
+          type: string
+        purpose:
+          type: string
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        created:
+          type: string
+          format: date-time
+    ContainerDetailsDto:
+      type: object
+      properties:
+        containerId:
+          type: string
+        name:
+          type: string
+        purpose:
+          type: string
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        created:
+          type: string
+          format: date-time
+        technicalDescriptors:
+          type: array
+          items:
+            type: string
+    CustomerErrorResponse:
+      properties:
+        exveErrorId:
+          type: string
+        exveErrorRef:
+          type: string
+        exveErrorMsg:
+          type: string
+        exveNote:
+          type: string
+    ContainerListDto:
+      type: object
+      properties:
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContainerDto'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: GCDM Access Token
+      name: bearerAuth
+      scheme: bearer
+      bearerFormat: opaque
