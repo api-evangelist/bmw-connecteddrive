@@ -1,0 +1,16 @@
+{
+  "provider": "bmw-connecteddrive",
+  "sources": [
+    "bmw-connecteddrive-containers-api-openapi.yml",
+    "bmw-connecteddrive-vehicles-api-openapi.yml"
+  ],
+  "outputs": [
+    "bmw-connecteddrive-containers-api-openapi.yml",
+    "bmw-connecteddrive-vehicles-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
