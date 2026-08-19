@@ -1,0 +1,3494 @@
+{
+  "item": [
+    {
+      "id": "7afc5bb5-3ba6-4484-b046-482d2d766c11",
+      "name": "Vehicles",
+      "description": {
+        "content": "Access vehicle data and information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc8b919d-8f53-4134-a0d5-d3a0605e91da",
+          "name": "Request Vehicle's telematic data for a container, for the specified vehicle.",
+          "request": {
+            "name": "Request Vehicle's telematic data for a container, for the specified vehicle.",
+            "description": {
+              "content": "Please note that some keys are bound to dedicated endpoints. These keys can be added to a container, but the corresponding endpoint for which the container is an input-parameter (/telematicData/), won't return these keys. For further details, check the Integration Guide (chapter 3.3.2).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                ":vin",
+                "telematicData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "containerId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "67fd787b-c62b-4407-afc3-f195d945b4c1",
+              "name": "A specific list of telematic key and values was returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"telematicData\": {\n    \"key_0\": {\n      \"value\": \"string\",\n      \"unit\": \"string\",\n      \"timestamp\": \"string\"\n    },\n    \"key_1\": {\n      \"value\": \"string\",\n      \"unit\": \"string\",\n      \"timestamp\": \"string\"\n    },\n    \"key_2\": {\n      \"value\": \"string\",\n      \"unit\": \"string\",\n      \"timestamp\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27da05ea-1ee8-4d02-978b-fb642fbc4a30",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a6a3bc2-b1c5-4d21-9793-d82e7095f85a",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c2f2126-1c45-4bcb-b608-f1482a622d42",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ac5c5a9-83eb-4d15-a87e-d5039ec0f2a1",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "695626dc-3a73-442b-ab86-2a45e6ca1764",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4df99c79-a51d-409c-91c3-08d4000f2bfc",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "telematicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c18d273c-96f8-4cc5-b4e2-57e687cc1308",
+          "name": "Request a vehicle Smart Maintenance Tyre Diagnosis for the specified vehicle.",
+          "request": {
+            "name": "Request a vehicle Smart Maintenance Tyre Diagnosis for the specified vehicle.",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                ":vin",
+                "smartMaintenanceTyreDiagnosis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eeaf94d7-c1d5-46d6-8322-ac4d3c661700",
+              "name": "Specific vehicle Smart Maintenance Tyre Diagnosis Data is provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"passengerCar\": {\n    \"mountedTyres\": {\n      \"aggregatedQualityStatus\": {\n        \"label\": \"string\",\n        \"qualityStatus\": \"string\",\n        \"value\": \"string\"\n      },\n      \"frontLeft\": {\n        \"dimension\": {\n          \"aspectRatio\": 5590,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 6503,\n          \"rimDiameter\": 6143,\n          \"sectionWidth\": 9690,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": true,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"YELLOW\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"YELLOW\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"YELLOW\",\n          \"dueMileage\": 7486,\n          \"unit\": \"KILOMETER\"\n        }\n      },\n      \"frontRight\": {\n        \"dimension\": {\n          \"aspectRatio\": 9273,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 9288,\n          \"rimDiameter\": 5592,\n          \"sectionWidth\": 7377,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": false,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"YELLOW\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"GREEN\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREY\",\n          \"dueMileage\": 2908,\n          \"unit\": \"KILOMETER\"\n        }\n      },\n      \"label\": \"string\",\n      \"rearLeft\": {\n        \"dimension\": {\n          \"aspectRatio\": 2539,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 3670,\n          \"rimDiameter\": 1454,\n          \"sectionWidth\": 2222,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": true,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREEN\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"RED\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREEN\",\n          \"dueMileage\": 9108,\n          \"unit\": \"MILE\"\n        }\n      },\n      \"rearRight\": {\n        \"dimension\": {\n          \"aspectRatio\": 1177,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 7649,\n          \"rimDiameter\": 9621,\n          \"sectionWidth\": 2719,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": false,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"RED\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"YELLOW\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREY\",\n          \"dueMileage\": 2285,\n          \"unit\": \"KILOMETER\"\n        }\n      }\n    },\n    \"unmountedTyres\": {\n      \"aggregatedQualityStatus\": {\n        \"label\": \"string\",\n        \"qualityStatus\": \"string\",\n        \"value\": \"string\"\n      },\n      \"frontLeft\": {\n        \"dimension\": {\n          \"aspectRatio\": 5776,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 836,\n          \"rimDiameter\": 1561,\n          \"sectionWidth\": 6622,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": true,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREY\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"GREEN\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"RED\",\n          \"dueMileage\": 7859,\n          \"unit\": \"KILOMETER\"\n        }\n      },\n      \"frontRight\": {\n        \"dimension\": {\n          \"aspectRatio\": 3398,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 3758,\n          \"rimDiameter\": 4021,\n          \"sectionWidth\": 5868,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": false,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREY\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"GREEN\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREEN\",\n          \"dueMileage\": 3529,\n          \"unit\": \"KILOMETER\"\n        }\n      },\n      \"label\": \"string\",\n      \"rearLeft\": {\n        \"dimension\": {\n          \"aspectRatio\": 799,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 4358,\n          \"rimDiameter\": 9555,\n          \"sectionWidth\": 7599,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": true,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREY\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"GREY\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREEN\",\n          \"dueMileage\": 9261,\n          \"unit\": \"KILOMETER\"\n        }\n      },\n      \"rearRight\": {\n        \"dimension\": {\n          \"aspectRatio\": 9201,\n          \"constructionType\": \"string\",\n          \"label\": \"string\",\n          \"loadIndex\": 7625,\n          \"rimDiameter\": 3807,\n          \"sectionWidth\": 4906,\n          \"speedRating\": \"string\",\n          \"value\": \"string\"\n        },\n        \"label\": \"string\",\n        \"mountingDate\": {\n          \"label\": \"string\",\n          \"mountingDate\": \"string\",\n          \"value\": \"string\"\n        },\n        \"optimizedForOem\": {\n          \"label\": \"string\",\n          \"optimizedForOem\": \"string\",\n          \"value\": \"string\"\n        },\n        \"partNumber\": {\n          \"label\": \"string\",\n          \"partNumber\": \"string\",\n          \"value\": \"string\"\n        },\n        \"qualityStatus\": {\n          \"label\": \"string\",\n          \"qualityStatus\": \"string\",\n          \"value\": \"string\"\n        },\n        \"runFlat\": {\n          \"label\": \"string\",\n          \"runFlat\": false,\n          \"value\": \"string\"\n        },\n        \"season\": {\n          \"label\": \"string\",\n          \"season\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tread\": {\n          \"carcass\": \"string\",\n          \"label\": \"string\",\n          \"manufacturer\": \"string\",\n          \"treadDesign\": \"string\",\n          \"value\": \"string\"\n        },\n        \"tyreDefect\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREEN\"\n        },\n        \"tyreProductionDate\": {\n          \"label\": \"string\",\n          \"statusColor\": \"YELLOW\",\n          \"value\": \"string\"\n        },\n        \"tyreWear\": {\n          \"label\": \"string\",\n          \"value\": \"string\",\n          \"status\": \"string\",\n          \"statusColor\": \"GREY\",\n          \"dueMileage\": 9340,\n          \"unit\": \"KILOMETER\"\n        }\n      }\n    }\n  },\n  \"errors\": [\n    {\n      \"eventId\": \"string\",\n      \"message\": {},\n      \"type\": \"string\"\n    },\n    {\n      \"eventId\": \"string\",\n      \"message\": {},\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77375bd5-7d93-483c-91db-364bb62cfbd9",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f4e5937-4088-4fbf-a52e-9b92ed04c407",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ace18308-d076-4dfa-9566-4d16760a4569",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9502438-3df8-43f0-a982-828675484f6d",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8b7938e-d736-445e-aa3e-bebc90cd984c",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f8321cb-36f8-4a7c-8a96-f8cf0c21283b",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "smartMaintenanceTyreDiagnosis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fc6103b-ba28-448e-9744-de76d24f2361",
+          "name": "Request Vehicle's location based charging settings",
+          "request": {
+            "name": "Request Vehicle's location based charging settings",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                ":vin",
+                "locationBasedChargingSettings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8b34d5fb-4db8-4dfb-9550-600883bd92a6",
+              "name": "List of location based charging settings returned for the VIN.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextToken\": \"string\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"lastUpdated\": \"string\",\n      \"clusterLocationId\": \"string\",\n      \"latitude\": 7259.200518732692,\n      \"longitude\": 3548.8658938751414,\n      \"lastVisit\": \"string\",\n      \"visits\": 6398,\n      \"chargingMode\": \"string\",\n      \"optimizedChargingPreference\": \"string\",\n      \"startChargingTimePeriodHour\": 1266,\n      \"startChargingTimePeriodMinute\": 4818,\n      \"stopChargingTimePeriodHour\": 4058,\n      \"stopChargingTimePeriodMinute\": 8550,\n      \"vehicleIdWithGcid\": \"string\",\n      \"chargingTimeWindows\": [\n        {\n          \"startChargingTimePeriodHour\": 1421,\n          \"startChargingTimePeriodMinute\": 599,\n          \"stopChargingTimePeriodHour\": 2781,\n          \"stopChargingTimePeriodMinute\": 1040\n        },\n        {\n          \"startChargingTimePeriodHour\": 4847,\n          \"startChargingTimePeriodMinute\": 887,\n          \"stopChargingTimePeriodHour\": 6847,\n          \"stopChargingTimePeriodMinute\": 334\n        }\n      ],\n      \"acCurrentLimitFlag\": \"string\",\n      \"acCurrentLimit\": 8472.024948776248,\n      \"acousticLimit\": \"string\",\n      \"flapLock\": \"string\",\n      \"chargingPlug\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lastUpdated\": \"string\",\n      \"clusterLocationId\": \"string\",\n      \"latitude\": 5571.157354193496,\n      \"longitude\": 4355.1108758355795,\n      \"lastVisit\": \"string\",\n      \"visits\": 2030,\n      \"chargingMode\": \"string\",\n      \"optimizedChargingPreference\": \"string\",\n      \"startChargingTimePeriodHour\": 8035,\n      \"startChargingTimePeriodMinute\": 3806,\n      \"stopChargingTimePeriodHour\": 912,\n      \"stopChargingTimePeriodMinute\": 6912,\n      \"vehicleIdWithGcid\": \"string\",\n      \"chargingTimeWindows\": [\n        {\n          \"startChargingTimePeriodHour\": 516,\n          \"startChargingTimePeriodMinute\": 1663,\n          \"stopChargingTimePeriodHour\": 6214,\n          \"stopChargingTimePeriodMinute\": 9591\n        },\n        {\n          \"startChargingTimePeriodHour\": 650,\n          \"startChargingTimePeriodMinute\": 4492,\n          \"stopChargingTimePeriodHour\": 3905,\n          \"stopChargingTimePeriodMinute\": 1309\n        }\n      ],\n      \"acCurrentLimitFlag\": \"string\",\n      \"acCurrentLimit\": 8501.466637106649,\n      \"acousticLimit\": \"string\",\n      \"flapLock\": \"string\",\n      \"chargingPlug\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b156a67-c0ab-4861-8634-e61848babe2b",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27fdbdac-8560-40c7-ab66-2b1851a95ecd",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab1d3db7-6bcb-4d84-857f-3244d2cca179",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "379a24b5-adae-4025-afc3-26fc63952631",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "230840d5-b3b9-4145-bc16-7429c431ff9a",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a18c09b2-47d8-47ef-827a-5ba73001a025",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "locationBasedChargingSettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2638b39-c431-48b0-8587-a42d408c493d",
+          "name": "Request a vehicle image for the specified vehicle.",
+          "request": {
+            "name": "Request a vehicle image for the specified vehicle.",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                ":vin",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c4748ec-8ff9-4940-9403-db86b4267fae",
+              "name": "A specific vehicle image is provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "null",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6d75026-17a7-43c3-9532-ccb1f75792aa",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de3fec51-4637-4c76-9d66-08847e0cb011",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e1a7183-8469-4a2c-b6f3-4d638fcf549d",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc646fb6-210d-484e-9a19-e02300b5fdde",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a456e08-18c7-4fd2-bc06-159e6cff37ce",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21344572-9c65-4841-873a-74ba4a43deb8",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cde574a3-74de-4548-bf83-b3e770bfecd4",
+          "name": "Request the vehicle's Charging History sessions.",
+          "request": {
+            "name": "Request the vehicle's Charging History sessions.",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                ":vin",
+                "chargingHistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68a696f0-234e-4b70-a2c7-a054cc7d5f75",
+              "name": "Whatever Charging History respond will be passed on.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"displayedSoc\": 4719,\n      \"displayedStartSoc\": 127,\n      \"endTime\": 6992,\n      \"isPreconditioningActivated\": false,\n      \"mileage\": 8557,\n      \"mileageUnits\": \"MileageUnits.KM\",\n      \"startTime\": 9994,\n      \"timeZone\": \"string\",\n      \"totalChargingDurationSec\": 3559,\n      \"publicChargingPoint\": {\n        \"potentialChargingPointMatches\": [\n          {\n            \"postalCode\": \"string\",\n            \"streetAddress\": \"string\",\n            \"providerName\": \"string\",\n            \"city\": \"string\"\n          },\n          {\n            \"postalCode\": \"string\",\n            \"streetAddress\": \"string\",\n            \"providerName\": \"string\",\n            \"city\": \"string\"\n          }\n        ]\n      },\n      \"businessErrors\": [\n        {\n          \"creationTime\": \"1995-09-03T15:54:13.060Z\",\n          \"hint\": \"string\"\n        },\n        {\n          \"creationTime\": \"1983-05-31T17:26:58.187Z\",\n          \"hint\": \"string\"\n        }\n      ],\n      \"energyConsumedFromPowerGridKwh\": 1962.167617302767,\n      \"energyDecreaseHvbKwh\": 7093.90609498174,\n      \"energyDischargedKwh\": 7596.837601622465,\n      \"chargingLocation\": {\n        \"formattedAddress\": \"string\",\n        \"municipality\": \"string\",\n        \"streetAddress\": \"string\",\n        \"mapMatchedLatitude\": 7801.787400721984,\n        \"mapMatchedLongitude\": 8137.097017545859\n      },\n      \"chargingBlocks\": [\n        {\n          \"endTime\": 1787,\n          \"startTime\": 2689,\n          \"averagePowerGridKw\": 2638.1507237876613\n        },\n        {\n          \"endTime\": 1558,\n          \"startTime\": 79,\n          \"averagePowerGridKw\": 9763.888674010988\n        }\n      ]\n    },\n    {\n      \"displayedSoc\": 7494,\n      \"displayedStartSoc\": 8413,\n      \"endTime\": 8777,\n      \"isPreconditioningActivated\": true,\n      \"mileage\": 9714,\n      \"mileageUnits\": \"MileageUnits.KM\",\n      \"startTime\": 8487,\n      \"timeZone\": \"string\",\n      \"totalChargingDurationSec\": 157,\n      \"publicChargingPoint\": {\n        \"potentialChargingPointMatches\": [\n          {\n            \"postalCode\": \"string\",\n            \"streetAddress\": \"string\",\n            \"providerName\": \"string\",\n            \"city\": \"string\"\n          },\n          {\n            \"postalCode\": \"string\",\n            \"streetAddress\": \"string\",\n            \"providerName\": \"string\",\n            \"city\": \"string\"\n          }\n        ]\n      },\n      \"businessErrors\": [\n        {\n          \"creationTime\": \"2017-07-17T04:52:35.979Z\",\n          \"hint\": \"string\"\n        },\n        {\n          \"creationTime\": \"1961-08-10T16:44:29.069Z\",\n          \"hint\": \"string\"\n        }\n      ],\n      \"energyConsumedFromPowerGridKwh\": 1001.1748874097315,\n      \"energyDecreaseHvbKwh\": 56.77330288660576,\n      \"energyDischargedKwh\": 5896.928249060031,\n      \"chargingLocation\": {\n        \"formattedAddress\": \"string\",\n        \"municipality\": \"string\",\n        \"streetAddress\": \"string\",\n        \"mapMatchedLatitude\": 5615.653483262605,\n        \"mapMatchedLongitude\": 3957.4886691426427\n      },\n      \"chargingBlocks\": [\n        {\n          \"endTime\": 2760,\n          \"startTime\": 6109,\n          \"averagePowerGridKw\": 2280.873333967839\n        },\n        {\n          \"endTime\": 7201,\n          \"startTime\": 3373,\n          \"averagePowerGridKw\": 8480.76576607599\n        }\n      ]\n    }\n  ],\n  \"next_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40531e56-0b1f-4cb8-a397-d7c7fb8c09e2",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f620b24f-583c-439c-963b-d79632bac616",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43f813de-05cf-409e-8226-78112f97d64b",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9a1b3bf-70a2-463f-b5f7-14aeb75073d0",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "841a13a3-2bbb-427c-b8b6-92a9c1ee18ad",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "007b9a0c-aa8d-4d42-b547-892dfb815274",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "chargingHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01584621-d822-474f-a013-09e4ab4403a7",
+          "name": "Request basic vehicle data for the specified vehicle.",
+          "request": {
+            "name": "Request basic vehicle data for the specified vehicle.",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                ":vin",
+                "basicData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2f18e16-1b4d-4168-b4a8-cd9bebbb313f",
+              "name": "A VIN specific list of telematic key and values was returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vin\": \"string\",\n  \"brand\": \"Rolls-Royce\",\n  \"isTelematicsCapable\": false,\n  \"puStep\": \"string\",\n  \"modelRange\": \"string\",\n  \"series\": \"string\",\n  \"modelName\": \"string\",\n  \"modelKey\": \"string\",\n  \"bodyType\": \"string\",\n  \"numberOfDoors\": 1531,\n  \"hasNavi\": true,\n  \"headUnit\": \"string\",\n  \"hasSunRoof\": false,\n  \"countryCodeISO\": \"string\",\n  \"steering\": \"string\",\n  \"engine\": \"string\",\n  \"driveTrain\": \"string\",\n  \"chargingModes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"propulsionType\": \"string\",\n  \"colourCode\": \"string\",\n  \"colourCodeRaw\": \"string\",\n  \"constructionDate\": \"string\",\n  \"fullSAList\": \"string\",\n  \"hvsMaxEnergyAbsolute\": \"string\",\n  \"simStatus\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1719f6a-bc40-43a5-8a88-3e1017b0df8e",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4629bf3-ee12-4836-a08e-c7755728a0e0",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0599f257-cb4f-407b-b415-d3190ad150d5",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a49d4f70-5751-4f5a-8154-21e577ffe287",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c757332a-99aa-4b6f-baeb-82f0cd5c9dce",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73b201df-a91f-4f94-b710-d89bea53db1e",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    ":vin",
+                    "basicData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e1af650-410c-49da-a033-86f94ea9f52e",
+          "name": "Request mapped vehicles.",
+          "request": {
+            "name": "Request mapped vehicles.",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "vehicles",
+                "mappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-version",
+                "value": "v1"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "53d4e629-7443-450e-9f20-a727a4ed0e85",
+              "name": "List of mapped vehicles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vin\": \"string\",\n  \"mappedSince\": \"1983-03-10T03:38:36.008Z\",\n  \"mappingType\": \"SECONDARY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4265cfaa-6caa-4f5c-92cb-45f22b35bd8b",
+              "name": "Bad request. Please check API specification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d05be9cb-8e6f-4825-8cac-b3c40eff4802",
+              "name": "Authentication Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c15933ff-507b-45c3-93a5-2f033ade1d54",
+              "name": "Access to resource is forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7a78093-f3e1-4b36-ba6f-be87b98b0515",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09f2d7ac-97e1-4d22-a479-b1480ea41f25",
+              "name": "A permanent server error occurred. Report this error if it occurs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c57c045-1afe-4bc4-b65c-a8c66e122c5c",
+              "name": "A temporary server error occurred. Retry again later or report this error if it persists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "vehicles",
+                    "mappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-version",
+                    "value": "v1"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exveErrorId\": \"string\",\n  \"exveErrorRef\": \"string\",\n  \"exveErrorMsg\": \"string\",\n  \"exveNote\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-cardata.bmwgroup.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d0531831-3d43-475e-8099-62d6827f9cf5",
+    "name": "CARDATA Containers Vehicles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Management of containers",
+      "type": "text/plain"
+    }
+  }
+}

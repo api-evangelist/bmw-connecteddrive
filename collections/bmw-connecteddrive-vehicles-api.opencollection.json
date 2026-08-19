@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CARDATA Containers Vehicles API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request Vehicle's telematic data for a container, for the specified vehicle.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/:vin/telematicData",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Please note that some keys are bound to dedicated endpoints. These keys can be added to a container, but the corresponding endpoint for which the container is an input-parameter (/telematicData/), won't return these keys. For further details, check the Integration Guide (chapter 3.3.2)."
+        },
+        {
+          "info": {
+            "name": "Request a vehicle Smart Maintenance Tyre Diagnosis for the specified vehicle.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/:vin/smartMaintenanceTyreDiagnosis",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request a vehicle Smart Maintenance Tyre Diagnosis for the specified vehicle."
+        },
+        {
+          "info": {
+            "name": "Request Vehicle's location based charging settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/:vin/locationBasedChargingSettings",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request Vehicle's location based charging settings"
+        },
+        {
+          "info": {
+            "name": "Request a vehicle image for the specified vehicle.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/:vin/image",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request a vehicle image for the specified vehicle."
+        },
+        {
+          "info": {
+            "name": "Request the vehicle's Charging History sessions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/:vin/chargingHistory",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request the vehicle's Charging History sessions."
+        },
+        {
+          "info": {
+            "name": "Request basic vehicle data for the specified vehicle.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/:vin/basicData",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request basic vehicle data for the specified vehicle."
+        },
+        {
+          "info": {
+            "name": "Request mapped vehicles.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/vehicles/mappings",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request mapped vehicles."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CARDATA Containers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Containers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the containers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/containers",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List the containers"
+        },
+        {
+          "info": {
+            "name": "Create a container",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-cardata.bmwgroup.com/customers/containers",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Please note that some keys are bound to dedicated endpoints. These keys can be added to a container, but the corresponding endpoint for which the container is an input-parameter (/telematicData/), won't return these keys. For further details, check the Integration Guide (chapter 3.3.2)."
+        },
+        {
+          "info": {
+            "name": "Request container details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-cardata.bmwgroup.com/customers/containers/:containerId",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path",
+                "description": "ID that identifies an unique container"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Please note that some keys are bound to dedicated endpoints. These keys can be added to a container, but the corresponding endpoint for which the container is an input-parameter (/telematicData/), won't return these keys. For further details, check the Integration Guide (chapter 3.3.2)."
+        },
+        {
+          "info": {
+            "name": "Delete container by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-cardata.bmwgroup.com/customers/containers/:containerId",
+            "headers": [
+              {
+                "name": "x-version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path",
+                "description": "ID that identifies an unique container"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete container by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
