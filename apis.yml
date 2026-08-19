@@ -53,7 +53,7 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bmw-connecteddrive.png
 created: '2026-05-25'
 modified: '2026-05-25'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - aid: bmw-connecteddrive:bmw-cardata-streaming-api
   name: BMW CarData Streaming API
