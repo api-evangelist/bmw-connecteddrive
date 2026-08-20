@@ -30,6 +30,22 @@ tags:
   - Charging
   - MQTT
   - Streaming
+  - Authentication
+  - Device Code Flow
+  - GDPR
+  - Right To Repair
+  - Mobility
+tags_raw:
+  - Automotive
+  - Connected Vehicle
+  - Telematics
+  - Vehicle Data
+  - CarData
+  - ConnectedDrive
+  - Electric Vehicles
+  - Charging
+  - MQTT
+  - Streaming
   - OAuth
   - Device Code Flow
   - GDPR
