@@ -167,6 +167,9 @@ apis:
   - type: Documentation
     url: https://bmw-cardata.bmwgroup.com/customer/public/api-specification
 common:
+  - type: CapabilityMap
+    url: capabilities/bmw-connecteddrive-capability-edges.yml
+    name: BMW ConnectedDrive Business Capability Map
   - type: AgenticAccess
     url: agentic-access/bmw-connecteddrive-agentic-access.yml
   - type: DomainSecurity

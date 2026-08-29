@@ -1,0 +1,26 @@
+slug: bmw-connecteddrive
+provider: BMW ConnectedDrive
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Automotive & Mobility
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Vehicles
+  spec_file: bmw-connecteddrive-vehicles-api-openapi.yml
+  capability_id: BC-3460.40
+  capability_id_l1: BC-3460
+  capability_name: Vehicle Data Platform Operations
+  confidence: 0.75
+  evidence: '"getTelematicData  Request Vehicle''s telematic data for a container, for the specified vehicle";
+    "getChargingHistory"; "getBasicData"; schemas TelematicDataEntryDto, ChargingHistoryResponseDto'
+  reason: Operations retrieve per-VIN telematic data, charging history, tyre diagnosis and basic vehicle
+    data from the OEM connected-vehicle cloud — i.e. operation of the vehicle data platform exposing first/third-party
+    access to vehicle data. Diagnostics reading (BC-3450.40) is a plausible alternative, hence not higher.
