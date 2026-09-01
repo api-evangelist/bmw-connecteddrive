@@ -122,6 +122,12 @@ apis:
     https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation
   tags:
   - CarData
+  - Third Party
+  - Vehicles
+  - Telematics
+  - Right To Repair
+  tags_raw:
+  - CarData
   - Third-Party
   - Vehicles
   - Telematics
