@@ -1,8 +1,7 @@
 {
   "provider": "bmw-connecteddrive",
   "sources": [
-    "bmw-connecteddrive-containers-api-openapi.yml",
-    "bmw-connecteddrive-vehicles-api-openapi.yml"
+    "_original/bmw-cardata-customer-api-openapi.json"
   ],
   "outputs": [
     "bmw-connecteddrive-containers-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bmw-cardata-customer-api-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "bmw-connecteddrive-containers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bmw-connecteddrive-vehicles-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

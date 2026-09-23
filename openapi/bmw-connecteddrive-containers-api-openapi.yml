@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: CARDATA Containers API
   version: 1.0.0
@@ -339,6 +339,44 @@ paths:
       - bearerAuth: []
 components:
   schemas:
+    CustomerErrorResponse:
+      properties:
+        exveErrorId:
+          type: string
+        exveErrorRef:
+          type: string
+        exveErrorMsg:
+          type: string
+        exveNote:
+          type: string
+    ContainerDetailsDto:
+      type: object
+      properties:
+        containerId:
+          type: string
+        name:
+          type: string
+        purpose:
+          type: string
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        created:
+          type: string
+          format: date-time
+        technicalDescriptors:
+          type: array
+          items:
+            type: string
+    ContainerListDto:
+      type: object
+      properties:
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContainerDto'
     CreateContainerRequest:
       type: object
       description: Container creation request payload
@@ -368,44 +406,6 @@ components:
         created:
           type: string
           format: date-time
-    ContainerDetailsDto:
-      type: object
-      properties:
-        containerId:
-          type: string
-        name:
-          type: string
-        purpose:
-          type: string
-        state:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        created:
-          type: string
-          format: date-time
-        technicalDescriptors:
-          type: array
-          items:
-            type: string
-    CustomerErrorResponse:
-      properties:
-        exveErrorId:
-          type: string
-        exveErrorRef:
-          type: string
-        exveErrorMsg:
-          type: string
-        exveNote:
-          type: string
-    ContainerListDto:
-      type: object
-      properties:
-        containers:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContainerDto'
   securitySchemes:
     bearerAuth:
       type: http
