@@ -339,16 +339,18 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    CustomerErrorResponse:
+    CreateContainerRequest:
+      type: object
+      description: Container creation request payload
       properties:
-        exveErrorId:
+        name:
           type: string
-        exveErrorRef:
+        purpose:
           type: string
-        exveErrorMsg:
-          type: string
-        exveNote:
-          type: string
+        technicalDescriptors:
+          type: array
+          items:
+            type: string
     ContainerDetailsDto:
       type: object
       properties:
@@ -377,18 +379,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ContainerDto'
-    CreateContainerRequest:
-      type: object
-      description: Container creation request payload
-      properties:
-        name:
-          type: string
-        purpose:
-          type: string
-        technicalDescriptors:
-          type: array
-          items:
-            type: string
     ContainerDto:
       type: object
       properties:
@@ -406,6 +396,16 @@ components:
         created:
           type: string
           format: date-time
+    CustomerErrorResponse:
+      properties:
+        exveErrorId:
+          type: string
+        exveErrorRef:
+          type: string
+        exveErrorMsg:
+          type: string
+        exveNote:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

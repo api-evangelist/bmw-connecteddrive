@@ -622,77 +622,30 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    ExVeTelematicDataResponseDto:
+    ChargingHistoryResponseDto:
       type: object
       properties:
-        telematicData:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TelematicDataEntryDto'
-    ChargingLocationDto:
-      type: object
-      properties:
-        municipality:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChargingSessionDto'
+        next_token:
           type: string
-        formattedAddress:
-          type: string
-        streetAddress:
-          type: string
-        mapMatchedLatitude:
-          type: number
-        mapMatchedLongitude:
-          type: number
       required:
-      - formattedAddress
-      - municipality
-      - streetAddress
-    SeasonDto:
+      - data
+    VehicleMappingDto:
       type: object
       properties:
-        label:
+        vin:
           type: string
-        season:
+        mappedSince:
           type: string
-        value:
-          type: string
-    AggregatedQualityStatusDto:
-      type: object
-      properties:
-        label:
-          type: string
-        qualityStatus:
-          type: string
-        value:
-          type: string
-    ChargingBlockDto:
-      type: object
-      properties:
-        startTime:
-          type: integer
-          format: int64
-        endTime:
-          type: integer
-          format: int64
-        averagePowerGridKw:
-          type: number
-          format: double
-      required:
-      - endTime
-      - startTime
-    TyreProductionDateDto:
-      type: object
-      properties:
-        label:
-          type: string
-        statusColor:
+          format: date-time
+        mappingType:
           type: string
           enum:
-          - RED
-          - YELLOW
-          - GREEN
-          - GREY
-        value:
-          type: string
+          - PRIMARY
+          - SECONDARY
     LocationBasedChargingSettingsDataDto:
       type: object
       properties:
@@ -746,6 +699,63 @@ components:
           type: string
         chargingPlug:
           type: string
+    AggregatedQualityStatusDto:
+      type: object
+      properties:
+        label:
+          type: string
+        qualityStatus:
+          type: string
+        value:
+          type: string
+    ChargingLocationDto:
+      type: object
+      properties:
+        municipality:
+          type: string
+        formattedAddress:
+          type: string
+        streetAddress:
+          type: string
+        mapMatchedLatitude:
+          type: number
+        mapMatchedLongitude:
+          type: number
+      required:
+      - formattedAddress
+      - municipality
+      - streetAddress
+    LocationBasedChargingTimeWindowDto:
+      type: object
+      properties:
+        startChargingTimePeriodHour:
+          type: integer
+          format: int32
+        startChargingTimePeriodMinute:
+          type: integer
+          format: int32
+        stopChargingTimePeriodHour:
+          type: integer
+          format: int32
+        stopChargingTimePeriodMinute:
+          type: integer
+          format: int32
+    PassengerCarDto:
+      type: object
+      properties:
+        mountedTyres:
+          $ref: '#/components/schemas/PassengerCarTyreSetDto'
+        unmountedTyres:
+          $ref: '#/components/schemas/PassengerCarTyreSetDto'
+    RunFlatDto:
+      type: object
+      properties:
+        label:
+          type: string
+        runFlat:
+          type: boolean
+        value:
+          type: string
     TyreDataDto:
       type: object
       properties:
@@ -773,6 +783,144 @@ components:
           $ref: '#/components/schemas/TyreProductionDateDto'
         tyreWear:
           $ref: '#/components/schemas/TyreWearDto'
+    SmartMaintenanceErrorDto:
+      type: object
+      properties:
+        eventId:
+          type: string
+        message:
+          type: object
+        type:
+          type: string
+    PublicChargingPointMatchesDto:
+      type: object
+      properties:
+        postalCode:
+          type: string
+        streetAddress:
+          type: string
+        providerName:
+          type: string
+        city:
+          type: string
+    CustomerErrorResponse:
+      properties:
+        exveErrorId:
+          type: string
+        exveErrorRef:
+          type: string
+        exveErrorMsg:
+          type: string
+        exveNote:
+          type: string
+    PassengerCarTyreSetDto:
+      type: object
+      properties:
+        aggregatedQualityStatus:
+          $ref: '#/components/schemas/AggregatedQualityStatusDto'
+        frontLeft:
+          $ref: '#/components/schemas/TyreDataDto'
+        frontRight:
+          $ref: '#/components/schemas/TyreDataDto'
+        label:
+          type: string
+        rearLeft:
+          $ref: '#/components/schemas/TyreDataDto'
+        rearRight:
+          $ref: '#/components/schemas/TyreDataDto'
+    OptimizedForOemDto:
+      type: object
+      properties:
+        label:
+          type: string
+        optimizedForOem:
+          type: string
+        value:
+          type: string
+    TreadDto:
+      type: object
+      properties:
+        carcass:
+          type: string
+        label:
+          type: string
+        manufacturer:
+          type: string
+        treadDesign:
+          type: string
+        value:
+          type: string
+    BusinessErrorDto:
+      type: object
+      properties:
+        creationTime:
+          type: string
+          format: date-time
+        hint:
+          type: string
+    ExVeTelematicDataResponseDto:
+      type: object
+      properties:
+        telematicData:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TelematicDataEntryDto'
+    PublicChargingPointDto:
+      type: object
+      properties:
+        potentialChargingPointMatches:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicChargingPointMatchesDto'
+      required:
+      - potentialChargingPointMatches
+    TyreProductionDateDto:
+      type: object
+      properties:
+        label:
+          type: string
+        statusColor:
+          type: string
+          enum:
+          - RED
+          - YELLOW
+          - GREEN
+          - GREY
+        value:
+          type: string
+    ChargingBlockDto:
+      type: object
+      properties:
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        averagePowerGridKw:
+          type: number
+          format: double
+      required:
+      - endTime
+      - startTime
+    SeasonDto:
+      type: object
+      properties:
+        label:
+          type: string
+        season:
+          type: string
+        value:
+          type: string
+    SmartMaintenanceTyreDiagnosisDto:
+      type: object
+      properties:
+        passengerCar:
+          $ref: '#/components/schemas/PassengerCarDto'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SmartMaintenanceErrorDto'
     ChargingSessionDto:
       type: object
       properties:
@@ -837,86 +985,6 @@ components:
       - startTime
       - timeZone
       - totalChargingDurationSec
-    LocationBasedChargingSettingsDto:
-      type: object
-      properties:
-        nextToken:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocationBasedChargingSettingsDataDto'
-    DimensionDto:
-      type: object
-      properties:
-        aspectRatio:
-          type: integer
-          format: int32
-        constructionType:
-          type: string
-        label:
-          type: string
-        loadIndex:
-          type: integer
-          format: int32
-        rimDiameter:
-          type: integer
-          format: int32
-        sectionWidth:
-          type: integer
-          format: int32
-        speedRating:
-          type: string
-        value:
-          type: string
-    TelematicDataEntryDto:
-      type: object
-      properties:
-        value:
-          type: string
-        unit:
-          type: string
-        timestamp:
-          type: string
-    TyreDefectDto:
-      type: object
-      properties:
-        label:
-          type: string
-        value:
-          type: string
-        status:
-          type: string
-        statusColor:
-          type: string
-          enum:
-          - RED
-          - YELLOW
-          - GREEN
-          - GREY
-    BusinessErrorDto:
-      type: object
-      properties:
-        creationTime:
-          type: string
-          format: date-time
-        hint:
-          type: string
-    LocationBasedChargingTimeWindowDto:
-      type: object
-      properties:
-        startChargingTimePeriodHour:
-          type: integer
-          format: int32
-        startChargingTimePeriodMinute:
-          type: integer
-          format: int32
-        stopChargingTimePeriodHour:
-          type: integer
-          format: int32
-        stopChargingTimePeriodMinute:
-          type: integer
-          format: int32
     VehicleDto:
       type: object
       properties:
@@ -980,36 +1048,6 @@ components:
           type: string
         simStatus:
           type: string
-    PublicChargingPointMatchesDto:
-      type: object
-      properties:
-        postalCode:
-          type: string
-        streetAddress:
-          type: string
-        providerName:
-          type: string
-        city:
-          type: string
-    SmartMaintenanceTyreDiagnosisDto:
-      type: object
-      properties:
-        passengerCar:
-          $ref: '#/components/schemas/PassengerCarDto'
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/SmartMaintenanceErrorDto'
-    CustomerErrorResponse:
-      properties:
-        exveErrorId:
-          type: string
-        exveErrorRef:
-          type: string
-        exveErrorMsg:
-          type: string
-        exveNote:
-          type: string
     QualityStatusDto:
       type: object
       properties:
@@ -1019,6 +1057,31 @@ components:
           type: string
         value:
           type: string
+    PartNumberDto:
+      type: object
+      properties:
+        label:
+          type: string
+        partNumber:
+          type: string
+        value:
+          type: string
+    TyreDefectDto:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: string
+        status:
+          type: string
+        statusColor:
+          type: string
+          enum:
+          - RED
+          - YELLOW
+          - GREEN
+          - GREY
     TyreWearDto:
       type: object
       properties:
@@ -1043,83 +1106,6 @@ components:
           enum:
           - KILOMETER
           - MILE
-    ChargingHistoryResponseDto:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChargingSessionDto'
-        next_token:
-          type: string
-      required:
-      - data
-    VehicleMappingDto:
-      type: object
-      properties:
-        vin:
-          type: string
-        mappedSince:
-          type: string
-          format: date-time
-        mappingType:
-          type: string
-          enum:
-          - PRIMARY
-          - SECONDARY
-    SmartMaintenanceErrorDto:
-      type: object
-      properties:
-        eventId:
-          type: string
-        message:
-          type: object
-        type:
-          type: string
-    OptimizedForOemDto:
-      type: object
-      properties:
-        label:
-          type: string
-        optimizedForOem:
-          type: string
-        value:
-          type: string
-    PassengerCarDto:
-      type: object
-      properties:
-        mountedTyres:
-          $ref: '#/components/schemas/PassengerCarTyreSetDto'
-        unmountedTyres:
-          $ref: '#/components/schemas/PassengerCarTyreSetDto'
-    PassengerCarTyreSetDto:
-      type: object
-      properties:
-        aggregatedQualityStatus:
-          $ref: '#/components/schemas/AggregatedQualityStatusDto'
-        frontLeft:
-          $ref: '#/components/schemas/TyreDataDto'
-        frontRight:
-          $ref: '#/components/schemas/TyreDataDto'
-        label:
-          type: string
-        rearLeft:
-          $ref: '#/components/schemas/TyreDataDto'
-        rearRight:
-          $ref: '#/components/schemas/TyreDataDto'
-    TreadDto:
-      type: object
-      properties:
-        carcass:
-          type: string
-        label:
-          type: string
-        manufacturer:
-          type: string
-        treadDesign:
-          type: string
-        value:
-          type: string
     MountingDateDto:
       type: object
       properties:
@@ -1129,31 +1115,45 @@ components:
           type: string
         value:
           type: string
-    PublicChargingPointDto:
+    TelematicDataEntryDto:
       type: object
       properties:
-        potentialChargingPointMatches:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicChargingPointMatchesDto'
-      required:
-      - potentialChargingPointMatches
-    PartNumberDto:
-      type: object
-      properties:
-        label:
-          type: string
-        partNumber:
-          type: string
         value:
           type: string
-    RunFlatDto:
+        unit:
+          type: string
+        timestamp:
+          type: string
+    LocationBasedChargingSettingsDto:
       type: object
       properties:
+        nextToken:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationBasedChargingSettingsDataDto'
+    DimensionDto:
+      type: object
+      properties:
+        aspectRatio:
+          type: integer
+          format: int32
+        constructionType:
+          type: string
         label:
           type: string
-        runFlat:
-          type: boolean
+        loadIndex:
+          type: integer
+          format: int32
+        rimDiameter:
+          type: integer
+          format: int32
+        sectionWidth:
+          type: integer
+          format: int32
+        speedRating:
+          type: string
         value:
           type: string
   securitySchemes:
