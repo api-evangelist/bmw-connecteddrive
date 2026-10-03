@@ -339,39 +339,6 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    CreateContainerRequest:
-      type: object
-      description: Container creation request payload
-      properties:
-        name:
-          type: string
-        purpose:
-          type: string
-        technicalDescriptors:
-          type: array
-          items:
-            type: string
-    ContainerDetailsDto:
-      type: object
-      properties:
-        containerId:
-          type: string
-        name:
-          type: string
-        purpose:
-          type: string
-        state:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        created:
-          type: string
-          format: date-time
-        technicalDescriptors:
-          type: array
-          items:
-            type: string
     ContainerListDto:
       type: object
       properties:
@@ -396,6 +363,27 @@ components:
         created:
           type: string
           format: date-time
+    ContainerDetailsDto:
+      type: object
+      properties:
+        containerId:
+          type: string
+        name:
+          type: string
+        purpose:
+          type: string
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        created:
+          type: string
+          format: date-time
+        technicalDescriptors:
+          type: array
+          items:
+            type: string
     CustomerErrorResponse:
       properties:
         exveErrorId:
@@ -406,6 +394,18 @@ components:
           type: string
         exveNote:
           type: string
+    CreateContainerRequest:
+      type: object
+      description: Container creation request payload
+      properties:
+        name:
+          type: string
+        purpose:
+          type: string
+        technicalDescriptors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     bearerAuth:
       type: http
