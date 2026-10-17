@@ -360,23 +360,6 @@ components:
           type: array
           items:
             type: string
-    ContainerDto:
-      type: object
-      properties:
-        containerId:
-          type: string
-        name:
-          type: string
-        purpose:
-          type: string
-        state:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        created:
-          type: string
-          format: date-time
     CreateContainerRequest:
       type: object
       description: Container creation request payload
@@ -399,6 +382,23 @@ components:
           type: string
         exveNote:
           type: string
+    ContainerDto:
+      type: object
+      properties:
+        containerId:
+          type: string
+        name:
+          type: string
+        purpose:
+          type: string
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        created:
+          type: string
+          format: date-time
     ContainerListDto:
       type: object
       properties:
