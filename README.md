@@ -1,4 +1,4 @@
-# BMW ConnectedDrive (bmw-connecteddrive)
+# BMW ConnectedDrive
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,135 +66,104 @@
 
 BMW ConnectedDrive is BMW Group's umbrella for connected vehicle services spanning navigation, remote services, intelligent emergency call, ConnectedDrive Store add-ons, and the My BMW app. Programmatic access for customers, third-party developers, and the repair-and-maintenance ecosystem is consolidated under the BMW Open Data Platform / BMW CarData. CarData exposes an OAuth 2.0 Device Code Flow protected REST API at api-cardata.bmwgroup.com for retrieving static vehicle metadata (basicData), telematics, charging history, smart maintenance tyre diagnosis, location-based charging settings, vehicle images, and managing data "containers" that scope which telematics descriptors a client is authorized to read. A companion MQTT 3.1.1 streaming service at customer.streaming-cardata.bmwgroup.com:9000 (TLS) pushes live container data on the per-VIN topic `{gcid}/{vin}`. CarData is the EU regulatory successor to the legacy BMW ConnectedDrive REST endpoints used by the My BMW app and is the canonical surface for third-party automotive integrations, including independent repair, fleet, charging, and home-automation use cases.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bmw-connecteddrive/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bmw-connecteddrive/refs/heads/main/apis.yml)
+**Areas:** Automotive · Connected Vehicles · Telematics · Vehicle Data · CarData · ConnectedDrive · Electric Vehicles · Charging · MQTT · Streaming · Authentication · Device Code Flow
 
-## Scope
+## BMW ConnectedDrive on APIs.io
 
-- **Type:** Provider
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for BMW ConnectedDrive is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bmw-connecteddrive/](https://apis.io/providers/bmw-connecteddrive/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Automotive
-- Connected Vehicle
-- Telematics
-- Vehicle Data
-- CarData
-- ConnectedDrive
-- Electric Vehicles
-- Charging
-- MQTT
-- Streaming
-- OAuth
-- Device Code Flow
-- GDPR
-- Right To Repair
-- Mobility
+- [BMW CarData Streaming API](https://apis.io/apis/bmw-connecteddrive/bmw-cardata-streaming-api/) — The BMW CarData Streaming API delivers near-real-time vehicle telematics over MQTT 3.1.1 with TLS. Clients connect to…
+- [BMW CarData Third-Party API](https://apis.io/apis/bmw-connecteddrive/bmw-cardata-thirdparty-api/) — The third-party variant of BMW CarData targets independent service providers — repair shops, charging operators, fleet platforms, insurance, and aftermarket…
+- [BMW ConnectedDrive Containers API](https://apis.io/apis/bmw-connecteddrive/bmw-connecteddrive-containers-api/) — Management of containers
+- [BMW ConnectedDrive Vehicles API](https://apis.io/apis/bmw-connecteddrive/bmw-connecteddrive-vehicles-api/) — Access vehicle data and information
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### BMW CarData Customer API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The BMW CarData Customer API lets an authenticated BMW customer (or a delegate acting on their behalf via the customer portal) read vehicle metadata and telematics for the VINs mapped to their BMW ID account. Endpoints cover vehicle mappings, basic data, telematic data, charging history, smart-maintenance tyre diagnosis, location-based charging settings, vehicle images, and CRUD over CarData "containers" that define which descriptors a client subscribes to. Authentication uses the GCDM (Global Customer Data Management) bearer token obtained via the OAuth 2.0 Device Code Flow against the `cardata:api:read` scope. The base URL is `https://api-cardata.bmwgroup.com` with header `x-version: v1`. ID tokens are valid for one hour and must be refreshed via the standard OAuth refresh-token grant.
+- [Bmw Connecteddrive Agentic Access](https://apis.io/agentic-access/bmw-connecteddrive/bmw-connecteddrive-agentic-access/)
 
-- **Human URL:** [https://bmw-cardata.bmwgroup.com/customer/public/api-documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-documentation)
-- **Base URL:** `https://api-cardata.bmwgroup.com`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- CarData
-- Vehicles
-- Telematics
-- Containers
-- Charging
-- OAuth
+- [CARDATA API](https://apis.io/collections/bmw-connecteddrive/open-bmw-cardata-customer-api/)
+- [CARDATA Containers API](https://apis.io/collections/bmw-connecteddrive/open-bmw-connecteddrive-containers-api/)
+- [CARDATA Containers Vehicles API](https://apis.io/collections/bmw-connecteddrive/open-bmw-connecteddrive-vehicles-api/)
 
-#### Properties
+#### Security (2)
 
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bmw Connecteddrive Authentication](https://apis.io/security/bmw-connecteddrive/bmw-connecteddrive-authentication/)
+- [Bmw Connecteddrive Domain Security](https://apis.io/security/bmw-connecteddrive/bmw-connecteddrive-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.bmwgroup.com/)
 - [Documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-documentation)
-- [OpenAPI](openapi/bmw-cardata-customer-api-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bmw-cardata-customer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bmw-cardata-customer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-specification)
+- [Blog](https://www.press.bmwgroup.com/global/rss)
+- [Terms of service](https://www.bmw.com/en/footer/metanavigation/legal-notice-pool/legal-notice.html)
+- [Privacy policy](https://www.bmw.com/en/footer/metanavigation/privacy-policy.html)
+- [GitHub](https://github.com/bmwcarit)
 
-### BMW CarData Streaming API
+## API Evangelist rating
 
-The BMW CarData Streaming API delivers near-real-time vehicle telematics over MQTT 3.1.1 with TLS. Clients connect to `customer.streaming-cardata.bmwgroup.com` on port 9000, authenticate with their GCID as the MQTT username and a GCDM access token (scope `cardata:streaming:read`) as the password, and subscribe to the per-vehicle topic `{gcid}/{vin}`. The set of descriptors streamed is controlled by the container(s) the client has registered via the CarData REST API, allowing a customer to scope exactly which signals (e.g. state of charge, mileage, doors, location) flow to each third-party integration. The streaming surface is the recommended path for charging optimizers, home-automation hubs, and fleet telematics back-ends that need event-driven updates instead of polled reads.
+**Kin Score 28.7** — thin · rubric 0.24.0 · scored 2026-10-17
 
-- **Human URL:** [https://bmw-cardata.bmwgroup.com/customer/public/api-documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-documentation)
+| Facet | Score |
+|---|---|
+| Discoverability | 58.0 |
+| Contract quality | 47.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 23.7 |
 
-#### Tags
+**Agent readiness 23.0** — agent-aware
 
-- CarData
-- Streaming
-- MQTT
-- Telematics
-- Real-Time
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-#### Properties
+**Regulatory alignment 15.7** — Horizontal (data, software, accessibility, platform)
 
-- [Documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-documentation)
-- [Documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-specification)
-- [Postman Collection](collections/bmw-cardata-customer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bmw-cardata-customer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bmw-connecteddrive/](https://apis.io/providers/bmw-connecteddrive/).
 
-### BMW CarData Third-Party API
+## How this profile is made
 
-The third-party variant of BMW CarData targets independent service providers — repair shops, charging operators, fleet platforms, insurance, and aftermarket integrators — who consume vehicle data on behalf of customers who have explicitly consented through the BMW Open Data Platform. Third parties register a client, subscribe to one or more CarData services (which assigns the corresponding scope to the client ID), and then drive their users through the OAuth 2.0 Device Code Flow to obtain customer consent. The third-party surface reuses the same REST and MQTT endpoints as the Customer API but is bounded by the data-minimization rules of the BMW Open Data Platform and the EU Data Act / right-to-repair framework.
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- **Human URL:** [https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BMW ConnectedDrive: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-#### Tags
+## Open an issue
 
-- CarData
-- Third-Party
-- Vehicles
-- Telematics
-- Right To Repair
-
-#### Properties
-
-- [Documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation)
-- [Documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-specification)
-- [Documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation)
-- [Postman Collection](collections/bmw-cardata-customer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bmw-cardata-customer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://www.bmw.com)
-- [Portal](https://www.bmwgroup.com)
-- [Portal](https://bmw-cardata.bmwgroup.com/)
-- [Documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-documentation)
-- [Documentation](https://bmw-cardata.bmwgroup.com/customer/public/api-specification)
-- [Documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-documentation)
-- [Documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/car-data/technical-configuration/api-specification)
-- [Documentation](https://bmw-cardata.bmwgroup.com/thirdparty/public/repair-and-maintenance/technical-configuration/api-documentation)
-- [Sign Up](https://bmw-cardata.bmwgroup.com/customer)
-- [Sign Up](https://bmw-cardata.bmwgroup.com/thirdparty)
-- [Authentication](https://customer.bmwgroup.com/oneid/login)
-- [Connected Drive](https://www.bmw.com/en/explore-bmw/connected-drive.html)
-- [Connected Drive Store](https://customer.bmwgroup.com/store/)
-- [My B M W](https://www.bmw.com/en/footer/my-bmw-app.html)
-- [GitHub Organization](https://github.com/bmwcarit)
-- [GitHub Organization](https://github.com/bmwgroup)
-- [Privacy Policy](https://www.bmw.com/en/footer/metanavigation/privacy-policy.html)
-- [Terms of Service](https://www.bmw.com/en/footer/metanavigation/legal-notice-pool/legal-notice.html)
-- [Press](https://www.press.bmwgroup.com)
-- [Newsroom](https://www.bmwgroup.com/en/news.html)
-- [Twitter](https://twitter.com/BMWGroup)
-- [LinkedIn](https://www.linkedin.com/company/bmw-group)
-- [YouTube](https://www.youtube.com/@BMWGroup)
-- [Features](undefined)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bmw-connecteddrive/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
